@@ -159,6 +159,7 @@ input.year {
   font-weight: 300;
   font-size: 1.5rem;
   padding: 0.6rem 1rem;
+  line-height: 2rem;
 }
 
 .display.attribution {

@@ -3,18 +3,22 @@ package models;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "quotes")
 public class Quote extends Model {
 
     @Id
+    @GeneratedValue
     private long id;
+
+    @Constraints.Required
     private String quote;
+
+    @Constraints.Required
     private String attributedTo;
+
     private int year;
 
     public Quote(long id, String quote, String attributedTo, int year) {

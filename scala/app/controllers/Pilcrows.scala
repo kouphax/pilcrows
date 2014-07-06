@@ -11,7 +11,17 @@ object Pilcrows extends Controller {
   }
   
   def create = Action {
-	  Ok(views.html.create())
+	  Ok(views.html.create(Quote.form))
+  }
+
+  def save = Action { implicit request =>
+    Quote.form.bindFromRequest.fold(
+      errors => BadRequest(views.html.create(errors)),
+      quote => {
+        Quote.save(quote)
+        Redirect(routes.Pilcrows.index())
+      }
+    )
   }
 
   def view(id:Long) = Action {

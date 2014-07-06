@@ -1,3 +1,16 @@
+@(quote: Form[models.Quote])
+
 @layout {
-	<h1>This is the create page</h1>
+    @helper.form(action = routes.Pilcrows.save) {
+        <div class="row">
+            @helper.textarea(quote("quote"), 'rows -> 4, 'placeholder ->  "Quote")
+        </div>
+        <div class="row">
+            @helper.inputText(quote("attributedTo"), 'class -> "attribution", 'placeholder -> "Attribution")
+            @helper.inputText(quote("year"), 'class -> "year", 'placeholder -> "Year")
+        </div>
+        <div class="row">
+            <input type="submit" value="Save"/>
+        </div>
+    }
 }

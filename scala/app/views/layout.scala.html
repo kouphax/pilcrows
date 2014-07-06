@@ -1,0 +1,14 @@
+@(content: Html)
+
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/main.css")">
+	</head>
+    <body>
+        <header>
+            <h1><a href="@routes.Pilcrows.index">pilcrows</a></h1>
+        </header>
+		@content
+	</body>
+</html>

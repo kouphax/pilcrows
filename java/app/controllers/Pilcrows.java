@@ -6,18 +6,18 @@ import play.mvc.Result;
 public class Pilcrows extends Controller {
 
     public static Result index() {
-        return TODO;
+        return ok(views.html.index.render());
     }
 
     public static Result create() {
-        return TODO;
+        return ok(views.html.create.render());
     }
 
     public static Result search() {
-        return TODO;
+        return ok(views.html.search.render());
     }
     
     public static Result edit() {
-        return TODO;
+        return ok(views.html.edit.render());
     }
 }

@@ -1,0 +1,175 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+dd.info, dt {
+    display:none;
+}
+
+dl, dd {
+    display:inline;
+}
+
+body {
+  background-color: #e8e8e8;
+  padding:0;
+  margin:0;
+}
+
+
+header {
+  width:100%;
+  border-bottom: 1px solid #d5d5d5;
+  box-shadow:0 2px 0 0px #e2e2e2;
+  background-color:#efefef;
+  padding:1rem;
+}
+
+a {
+    text-decoration:none;
+    color: #000;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  color: #606060;
+  font-weight:700;
+}
+
+header h1 {
+  margin:0;
+  line-height:1.5rem;
+  font-size:1.5rem;
+}
+
+header h1 a {
+    color: #606060;
+    text-decoration:none;
+}
+
+
+
+#search {
+  position:relative;
+}
+
+#search .buttons {
+    position:absolute;
+    top:5px;
+    right:20px;
+    height:80%;
+    border-left:1px solid #d5d5d5;
+}
+
+
+#search .buttons button, #search .buttons a {
+    border:none;
+    background: none;
+    font-size:1.3rem;
+    padding:1rem 0rem;
+    padding-top:0.5rem;
+    padding-left:0.7rem;
+    color: #606060;
+    cursor:pointer;
+}
+
+.row {
+  width:612px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+#search input[type=text] {
+  padding-right:7rem;
+
+}
+
+
+
+.row input, .row textarea {
+  width:100%;
+  border: 1px solid #e2e2e2;
+  border-bottom: 1px solid #d5d5d5;
+  box-shadow:0 2px 0 0px #e2e2e2;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  padding: 0.6rem 1rem;
+}
+
+input.attribution {
+  width:68%;
+  display:inline;
+}
+
+input.year {
+  width:30%;
+  float:right;
+  display:inline;
+}
+
+.display {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  padding: 0.6rem 1rem;
+}
+
+.display.attribution {
+  text-align:right;
+}
+
+.edit-buttons input, .edit-buttons a {
+  width:48%;
+  float:left;
+  margin-right:0.4rem;
+  text-align:center;
+  border: 1px solid #e2e2e2;
+  border-bottom: 1px solid #d5d5d5;
+}

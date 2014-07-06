@@ -1,3 +1,10 @@
+@(quotes: List[models.Quote])
+
 @layout {
-	<h1>This is the index page</h1>
+    @quotes.map { quote =>
+        <div class="row">
+            <div class="display">@quote.quote</div>
+            <div class="display attribution">- @quote.attributedTo, @quote.year</div>
+        </div>
+    }
 }

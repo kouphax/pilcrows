@@ -8,4 +8,9 @@
     <div class="row">
         <div class="display attribution">- @quote.getAttributedTo(), @quote.getYear()</div>
     </div>
+
+    <div class="row edit-buttons">
+        <form action="@routes.Pilcrows.edit(quote.getId())"><input type="submit" value="Edit"/></form>
+        <form action="@routes.Pilcrows.delete(quote.getId())" method="post"><input type="submit" value="Delete!"/></form>
+    </div>
 }

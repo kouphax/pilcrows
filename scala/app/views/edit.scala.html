@@ -1,3 +1,4 @@
+@(id: Long, quote: Form[models.Quote])
 @layout {
-	<h1>This is the edit page</h1>
+    @form(routes.Pilcrows.update(id), quote)
 }

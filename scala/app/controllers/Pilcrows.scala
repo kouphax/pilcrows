@@ -30,11 +30,30 @@ object Pilcrows extends Controller {
       .getOrElse(Redirect(routes.Pilcrows.index()))
   }
   
-  def search = Action {
-	  Ok(views.html.index(List.empty))
+  def search = Action { implicit request =>
+    request.getQueryString("query")
+      .map(query => Ok(views.html.index(Quote.search(query))))
+      .getOrElse(Redirect(routes.Pilcrows.index()))
   }
   
-  def edit = Action {
-	  Ok(views.html.edit())
-  }  
+  def edit(id: Long) = Action {
+    Quote.selectSingle(id)
+      .map(quote => Ok(views.html.edit(id, Quote.form.fill(quote))))
+      .getOrElse(Redirect(routes.Pilcrows.index()))
+  }
+
+  def update(id: Long) = Action { implicit request =>
+    Quote.form.bindFromRequest.fold(
+      errors => BadRequest(views.html.edit(id, errors)),
+      quote => {
+        Quote.update(id, quote)
+        Redirect(routes.Pilcrows.index())
+      }
+    )
+  }
+
+  def delete(id: Long) = Action { implicit request =>
+    Quote.delete(id)
+    Redirect(routes.Pilcrows.index())
+  }
 }

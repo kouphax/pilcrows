@@ -31,10 +31,33 @@ object Quote {
     }
   }
 
+  def update(id: Long, newQuote: Quote) {
+    DB.withConnection { implicit connection =>
+      SQL"""UPDATE quotes
+            SET quote = ${newQuote.quote},
+                attributed_to = ${newQuote.attributedTo},
+                year = ${newQuote.year}
+            WHERE id = $id""".execute()
+    }
+  }
+
   def save(quote: Quote) {
     DB.withConnection { implicit connection =>
       SQL"""INSERT INTO quotes(quote, attributed_to, year)
             VALUES (${quote.quote}, ${quote.attributedTo}, ${quote.year})""".execute()
+    }
+  }
+
+  def delete(id: Long) {
+    DB.withConnection { implicit connection =>
+      SQL"DELETE FROM quotes WHERE id = $id".execute()
+    }
+  }
+
+  def search(query: String) = {
+    DB.withConnection { implicit connection =>
+      val like = s"%$query%"
+      SQL"SELECT * FROM quotes WHERE quote LIKE $like".map(rowToQuote).list()
     }
   }
 

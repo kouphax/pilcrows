@@ -22,7 +22,6 @@ public class Pilcrows extends Controller {
 
     public static Result save() {
         Form<Quote> quoteForm = form.bindFromRequest();
-
         if(quoteForm.hasErrors()) {
             return badRequest(views.html.create.render(quoteForm));
         } else {
@@ -32,11 +31,44 @@ public class Pilcrows extends Controller {
     }
 
     public static Result search() {
-        return ok(views.html.index.render(new ArrayList<Quote>()));
+        String query = request().getQueryString("query");
+        if(query == null) {
+            return redirect(routes.Pilcrows.index());
+        } else {
+            List<Quote> matches = Quote.find
+                    .where()
+                    .ilike("quote", "%" + query + "%")
+                    .findList();
+            return ok(views.html.index.render(matches));
+        }
     }
     
-    public static Result edit() {
-        return ok(views.html.edit.render());
+    public static Result edit(Long id) {
+        Quote quote = Quote.find.byId(id);
+        if(quote != null) {
+            return ok(views.html.edit.render(id, form.fill(quote)));
+        } else {
+            return redirect(routes.Pilcrows.index());
+        }
+    }
+
+    public static Result update(Long id) {
+        Form<Quote> quoteForm = form.bindFromRequest();
+        if(quoteForm.hasErrors()) {
+            return badRequest(views.html.edit.render(id, quoteForm));
+        } else {
+            Quote quote = quoteForm.get();
+            quote.update(id);
+            return redirect(routes.Pilcrows.index());
+        }
+    }
+
+    public static Result delete(Long id) {
+        Quote quote = Quote.find.byId(id);
+        if(quote != null) {
+            quote.delete();
+        }
+        return redirect(routes.Pilcrows.index());
     }
 
     public static Result view(Long id) {

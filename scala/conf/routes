@@ -12,5 +12,13 @@ POST    /create                     controllers.Pilcrows.save
 GET     /view/:id                   controllers.Pilcrows.view(id:Long)
 POST    /delete/:id                 controllers.Pilcrows.delete(id:Long)
 
+GET     /api                        @controllers.Api.index
+GET     /api/search                 @controllers.Api.search
+POST    /api                        @controllers.Api.create
+
+GET     /session                    controllers.Bonus.sesh
+GET     /socket                     controllers.Bonus.socket
+GET     /socket/client              controllers.Bonus.index
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

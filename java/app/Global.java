@@ -16,4 +16,12 @@ public class Global extends GlobalSettings {
             }
         });
     }
+
+    @Override
+    public <A> A getControllerInstance(Class<A> controllerClass) throws Exception {
+        // typically you'd ask the container to instantiate
+        // this and inject necessary dependencies but as our
+        // one non-static controller has none we can do this
+        return controllerClass.newInstance();
+    }
 }

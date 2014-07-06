@@ -13,6 +13,12 @@ object Pilcrows extends Controller {
   def create = Action {
 	  Ok(views.html.create())
   }
+
+  def view(id:Long) = Action {
+    Quote.selectSingle(id)
+      .map(quote => Ok(views.html.view(quote)))
+      .getOrElse(Redirect(routes.Pilcrows.index()))
+  }
   
   def search = Action {
 	  Ok(views.html.index(List.empty))

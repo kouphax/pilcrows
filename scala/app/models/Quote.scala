@@ -22,4 +22,10 @@ object Quote {
       SQL"SELECT * FROM quotes".map(rowToQuote).list()
     }
   }
+
+  def selectSingle(id: Long) = {
+    DB.withConnection { implicit connection =>
+      SQL"SELECT * FROM quotes WHERE id = $id".map(rowToQuote).singleOpt()
+    }
+  }
 }

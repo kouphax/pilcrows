@@ -24,4 +24,13 @@ public class Pilcrows extends Controller {
     public static Result edit() {
         return ok(views.html.edit.render());
     }
+
+    public static Result view(Long id) {
+        Quote quote = Quote.find.byId(id);
+        if(quote == null) {
+            return redirect(routes.Pilcrows.index());
+        } else {
+            return ok(views.html.view.render(Quote.find.byId(id)));
+        }
+    }
 }

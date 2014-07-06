@@ -3,8 +3,10 @@
 @layout {
     @for(quote <- quotes) {
         <div class="row">
-            <div class="display">@quote.getQuote()</div>
-            <div class="display attribution">- @quote.getAttributedTo(), @quote.getYear()</div>
+            <a href="@routes.Pilcrows.view(quote.getId())">
+                <div class="display">@quote.getQuote()</div>
+                <div class="display attribution">- @quote.getAttributedTo(), @quote.getYear()</div>
+            </a>
         </div>
     }
 }

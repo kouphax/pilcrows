@@ -3,8 +3,10 @@
 @layout {
     @quotes.map { quote =>
         <div class="row">
-            <div class="display">@quote.quote</div>
-            <div class="display attribution">- @quote.attributedTo, @quote.year</div>
+            <a href="@routes.Pilcrows.view(quote.id)">
+                <div class="display">@quote.quote</div>
+                <div class="display attribution">- @quote.attributedTo, @quote.year</div>
+            </a>
         </div>
     }
 }

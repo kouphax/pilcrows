@@ -1,0 +1,11 @@
+@(quote: models.Quote)
+
+@layout {
+    <div class="row">
+        <div class="display">@quote.quote</div>
+    </div>
+
+    <div class="row">
+        <div class="display attribution">- @quote.attributedTo, @quote.year</div>
+    </div>
+}

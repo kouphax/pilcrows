@@ -1,21 +1,7 @@
-@(quotes: List[models.Quote])
+@(message: String)
 
-@layout {
-    <div class="row">
-        <form id="search" action="@routes.Pilcrows.search()" method="get">
-            <input type="text" placeholder="Search entries" name="query"/>
-            <div class="buttons">
-                <button type="submit" title="Search"><i class="fa fa-search fa-fw"></i></button>
-                <a href="@routes.Pilcrows.create()"><i class="fa fa-plus"></i></a>
-            </div>
-        </form>
-    <div>
-    @for(quote <- quotes) {
-        <div class="row">
-            <a href="@routes.Pilcrows.view(quote.getId())">
-                <div class="display">@quote.getQuote()</div>
-                <div class="display attribution">- @quote.getAttributedTo(), @quote.getYear()</div>
-            </a>
-        </div>
-    }
+@main("Welcome to Play") {
+
+    @play20.welcome(message, style = "Java")
+
 }
